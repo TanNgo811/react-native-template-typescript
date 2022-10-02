@@ -1,6 +1,6 @@
 import type {PropsWithChildren, ReactElement} from 'react';
 import React from 'react';
-import {demoScreenStyles as styles} from "src/screens/DemoScreen/DemoScreen.styles";
+import {demoScreenStyles as styles} from './DemoScreen.styles';
 import nameof from 'ts-nameof.macro';
 import type {StackScreenProps} from '@react-navigation/stack';
 import {Text, TouchableOpacity, View} from 'react-native';

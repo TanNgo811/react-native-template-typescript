@@ -1,15 +1,7 @@
-import React from 'react';
 import type {PropsWithChildren, ReactElement} from 'react';
+import React from 'react';
 import nameof from 'ts-nameof.macro';
-import {
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  ToastAndroid,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {ScrollView, StatusBar, Text, useColorScheme, View} from 'react-native';
 import {
   Colors,
   DebugInstructions,
@@ -19,7 +11,8 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import type {StackScreenProps} from '@react-navigation/stack';
 import {DemoScreen} from 'src/screens';
-import {helloWorldScreenStyles as styles} from "src/screens/HelloWorldScreen/HelloWorldScreen.styles";
+import {helloWorldScreenStyles as styles} from 'src/screens/HelloWorldScreen/HelloWorldScreen.styles';
+import {globalStyles} from 'src/styles';
 
 const Section: React.FC<{
   title: string;
@@ -33,6 +26,9 @@ const Section: React.FC<{
           {
             color: isDarkMode ? Colors.white : Colors.black,
           },
+          globalStyles.textBold,
+          globalStyles.ml4,
+          globalStyles.dangerTextColor,
         ]}>
         {title}
       </Text>
@@ -79,8 +75,11 @@ export function HelloWorldScreen(
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
+            Edit{' '}
+            <Text style={[styles.highlight, globalStyles.textBold]}>
+              App.tsx
+            </Text>{' '}
+            to change this screen and then come back to see your edits.
           </Section>
           <Section title="Demo Function Screen">
             <Text
@@ -104,7 +103,6 @@ export function HelloWorldScreen(
     </View>
   );
 }
-
 
 export interface HelloWorldScreenProps extends StackScreenProps<any> {
   //

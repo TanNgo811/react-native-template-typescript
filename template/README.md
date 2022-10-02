@@ -5,6 +5,9 @@
 ## Change SplashScreen
 
 ## Change Font
+### Install Custom Font Family
+- Copy Font files into the folder `assets/fonts`
+- Then run command `yarn react-native link`
 
 ## How to use & adjust Global Style
 
