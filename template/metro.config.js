@@ -5,13 +5,28 @@
  * @format
  */
 
-module.exports = {
-  transformer: {
-    getTransformOptions: async () => ({
-      transform: {
-        experimentalImportSupport: false,
-        inlineRequires: true,
-      },
-    }),
-  },
-};
+const {getDefaultConfig} = require('metro-config');
+
+module.exports = (async () => {
+  const {
+    resolver: {sourceExts, assetExts},
+  } = await getDefaultConfig('.');
+
+  return {
+    transformer: {
+      babelTransformerPath: require.resolve('./transformer.config.js'),
+      getTransformOptions: async () => ({
+        transform: {
+          experimentalImportSupport: false,
+          inlineRequires: true,
+        },
+      }),
+    },
+    resolver: {
+      sourceExts: [...sourceExts, 'svg', 'json'],
+      assetExts: assetExts.filter(
+        (ext) => !ext.match(/(svg|json)$/),
+      ),
+    },
+  };
+})();

@@ -2,3 +2,20 @@ node_modules/
 .vscode/
 .DS_Store
 .idea/
+
+
+template/node_modules
+
+
+
+# Android
+template/android/app/build
+template/android/.gradle
+template/android/.idea
+
+
+#iOS
+template/ios/build
+template/ios/Pods
+template/ios/Podfile.lock
+
