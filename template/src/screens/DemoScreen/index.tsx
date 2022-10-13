@@ -3,12 +3,13 @@ import React from 'react';
 import {demoScreenStyles as styles} from './DemoScreen.styles';
 import nameof from 'ts-nameof.macro';
 import type {StackScreenProps} from '@react-navigation/stack';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {AppLanguage} from 'src/types/AppLanguage';
 import {useDispatch, useSelector} from 'react-redux';
 import {languageSelector} from 'src/store/selectors';
 import {globalSlice} from 'src/store';
+import SvgIcon from 'src/components/atoms/SvgIcon/SvgIcon';
 
 export function DemoScreen(
   props: PropsWithChildren<DemoScreenProps>,
@@ -36,36 +37,42 @@ export function DemoScreen(
   );
 
   return (
-    <View style={styles.container}>
-      <View style={styles.headerContainer}>
-        <TouchableOpacity onPress={handleGoBack}>
-          <Text style={[styles.title]}>Back</Text>
-        </TouchableOpacity>
-      </View>
+    <>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.headerContainer}>
+          <TouchableOpacity onPress={handleGoBack}>
+            <Text style={[styles.title]}>Back</Text>
+          </TouchableOpacity>
 
-      <View style={styles.contentContainer}>
-        <Text style={styles.sectionTitle}>Test Translate</Text>
-
-        <View>
-          <Text>Choose Your Language:</Text>
-          <View>
-            {[
-              {language: AppLanguage.VIETNAMESE},
-              {language: AppLanguage.ENGLISH},
-            ].map((item, index) => (
-              <Text
-                style={styles.languageChoice}
-                onPress={handleChangeLanguage(item.language)}
-                key={index}>
-                {item.language} {item.language === selectedLanguage && '- ok'}
-              </Text>
-            ))}
-          </View>
+          <TouchableOpacity onPress={handleGoBack}>
+            <SvgIcon component={require('assets/icons/24/back.svg')} />
+          </TouchableOpacity>
         </View>
 
-        <Text>Result: {translate('demo.helloWorld')}</Text>
-      </View>
-    </View>
+        <View style={styles.contentContainer}>
+          <Text style={styles.sectionTitle}>Test Translate</Text>
+
+          <View>
+            <Text>Choose Your Language:</Text>
+            <View>
+              {[
+                {language: AppLanguage.VIETNAMESE},
+                {language: AppLanguage.ENGLISH},
+              ].map((item, index) => (
+                <Text
+                  style={styles.languageChoice}
+                  onPress={handleChangeLanguage(item.language)}
+                  key={index}>
+                  {item.language} {item.language === selectedLanguage && '- ok'}
+                </Text>
+              ))}
+            </View>
+          </View>
+
+          <Text>Result: {translate('demo.helloWorld')}</Text>
+        </View>
+      </SafeAreaView>
+    </>
   );
 }
 

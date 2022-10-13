@@ -18,6 +18,7 @@ const Section: React.FC<{
   title: string;
 }> = ({children, title}) => {
   const isDarkMode = useColorScheme() === 'dark';
+
   return (
     <View style={styles.sectionContainer}>
       <Text
@@ -27,6 +28,7 @@ const Section: React.FC<{
             color: isDarkMode ? Colors.white : Colors.black,
           },
           globalStyles.textBold,
+          // @ts-ignore
           globalStyles.ml4,
           globalStyles.dangerTextColor,
         ]}>
