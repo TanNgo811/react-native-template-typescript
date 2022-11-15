@@ -13,6 +13,10 @@ if (__DEV__) {
 
 const initialState: GlobalState['global'] = {
   language: AppLanguage.VIETNAMESE,
+
+  token: '',
+
+  refreshToken: '',
 };
 
 export const globalSlice = createSlice({
