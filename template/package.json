@@ -8,8 +8,9 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "extract": "i18next-extractor -i src/ -o src/i18n/ -p src/i18n/ extract",
-    "merge": "i18next-extractor -i src/ -o src/i18n/ -p src/i18n/ merge"
+    "extract": "translate -i src/ -o src/i18n/ -p src/i18n/ translate extract",
+    "merge": "translate -i src/ -o src/i18n/ -p src/i18n/ translate merge",
+    "translate": "translate"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.0.9",
@@ -66,6 +67,7 @@
     "react-native-svg-transformer": "^0.14.3",
     "react-native-svg-types": "^1.0.0",
     "react-test-renderer": "17.0.2",
+    "translate": "file:translate-extractor",
     "ts-nameof.macro": "^4.2.2",
     "typescript": "^4.4.4"
   },

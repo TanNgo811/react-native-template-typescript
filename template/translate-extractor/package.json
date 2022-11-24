@@ -1,0 +1,26 @@
+{
+  "name": "translate",
+  "version": "1.0.0",
+  "description": "This is replica translate extractor",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "translate": "node dist/index.js"
+  },
+  "bin": {
+    "translate": "dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^9.4.1",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.178",
+    "@types/node": "^18.11.9",
+    "typescript": "^4.9.3"
+  }
+}
