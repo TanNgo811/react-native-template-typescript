@@ -25,16 +25,26 @@
 
 ## :arrow_forward: Usage
 
+### Custom React Native Template TypeScript
+
+- Added TypeScript Config, React-Native Config, SCSS Styles, Navigation, i18n Translation, Redux, and default libraries.
+
+```sh
+npx react-native init MyApp --template https://github.com/TanNgo811/react-native-template-typescript.git
+```
+
+### Default React Native Template TypeScript
+
 ```sh
 npx react-native init MyApp --template react-native-template-typescript
 ```
 
 ### Usage with older versions of React Native
 
-#### e.g. `react-native@0.69.x`
+#### e.g. `react-native@0.67.x`
 
 ```sh
-npx react-native init MyApp --template react-native-template-typescript@6.11.9
+npx react-native init MyApp --template react-native-template-typescript@6.9.*
 ```
 
 See the below table to find out which version of the template to use.
