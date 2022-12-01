@@ -10,6 +10,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {languageSelector} from 'src/store/selectors';
 import {globalSlice} from 'src/store';
 import SvgIcon from 'src/components/atoms/SvgIcon/SvgIcon';
+import {localization} from 'src/i18n/helpers/Localization';
 
 export function DemoScreen(
   props: PropsWithChildren<DemoScreenProps>,
@@ -30,8 +31,9 @@ export function DemoScreen(
   const {changeLanguage} = globalSlice.actions;
 
   const handleChangeLanguage = React.useCallback(
-    (language: AppLanguage) => () => {
+    (language: AppLanguage) => async () => {
       dispatch(changeLanguage(language));
+      await localization.changeLanguage(language);
     },
     [changeLanguage, dispatch],
   );
